@@ -1,4 +1,6 @@
 import random
+import time
+import sys
 
 class Wheel:
     def __init__(self, predefined_choices, custom_choices):
@@ -27,3 +29,16 @@ class Wheel:
             return "No choices available!"
         else:
             return random.choice(self.all_choices)
+    
+    def spin_wheel(self, spins=10, delays=0.1):
+        # Spin the wheel with an animation effect
+        # Consider empty wheel cases
+        if not self.all_choices:
+            return "No Choices Available!"
+        
+        print("/nSpinning The Wheel of Fate")
+        for _ in range(spins):
+            result = random.choice(self.all_choices)
+            sys.stdout.write(f"/r🎉 {result}")
+            sys.stdout.flush()
+            return result
