@@ -18,7 +18,7 @@ def display_menu():
 
 def main():
     # Add Predefined chouces
-    predefined_choices = ["PomoPlus Development", "LeetCode", "FEZ Development", "Python for LLM"]
+    predefined_choices = []
 
     # Load custom choices
     custom_choices = load_choces(CHOICES_FILE)
