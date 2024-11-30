@@ -1,9 +1,19 @@
 # Python script to create the wheel of fate
 import os
+import tkinter as tk
+from tkinter import messagebox
+
 from Wheel import Wheel
 from Storage import (load_choces, save_choices, export_choices_to_csv, import_choices_from_csv)
 
 CHOICES_FILE = 'choices.json'
+
+def display_popup(title, message):
+    # Display a popup window with the answer after running the wheel
+    root = tk.Tk()
+    root.withdraw()
+    messagebox.showinfo(title, message)
+    root.destroy()
 
 def display_menu():
     # Display the main menu
@@ -58,7 +68,7 @@ def main():
                 print("Please enter a valid number")
         elif choice == "4": # Spin wheel
             result = wheel.spin_wheel(spins=15, delays=0.2)
-            # print(f"/nThe Wheel of Fate says {result}")
+            display_popup("The Wheel of fate says:\n", f"{result}")
         elif choice == "5": # Export choices to csv
             export_path = input("Enter file to export: ")
             export_choices_to_csv(export_path, wheel.all_choices)

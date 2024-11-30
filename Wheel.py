@@ -36,9 +36,8 @@ class Wheel:
         if not self.all_choices:
             return "No Choices Available!"
         
-        print("/nSpinning The Wheel of Fate")
         for _ in range(spins):
             result = random.choice(self.all_choices)
-            sys.stdout.write(f"/r🎉 {result}")
+            sys.stdout.write(f"\r🎉 {result}")
             sys.stdout.flush()
             return result
